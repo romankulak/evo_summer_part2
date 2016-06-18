@@ -1,1 +1,1 @@
-web: gunicorn talk_project
+web: gunicorn talk_project.wsgi
