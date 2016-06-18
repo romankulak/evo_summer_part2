@@ -1,0 +1,36 @@
+{% extends "talk/base.html" %}
+{% block content %}
+<br><br>
+
+<div class="row white">
+    <div class="columns large-12">
+        <p>Введите имя</p>
+        <form action="/create_post/" method="POST" id="post-form">
+            {% csrf_token %}
+            <div class="fieldWrapper" id="the_post">
+                {{ form.text }}
+            </div>
+            <input type="submit" value="Post" class="tiny button">
+        </form>
+    </div>
+</div>
+
+
+
+<!-- The feed -->
+<div class="row white">
+    <div class="columns large-12">
+        <ul id="talk">
+            {% for post in all_posts %}
+                <li>
+                    <strong>Рад тебя видеть снова, <strong id="ShowText"> </strong> {{ post.text }}</strong>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+    <script src="static/scripts/main.js"></script>
+
+{% endblock %}
