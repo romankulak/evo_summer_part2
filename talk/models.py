@@ -2,8 +2,8 @@ from django.db import models
 
 class Post(models.Model):
 
-    text = models.TextField()
-
+    text = models.CharField(max_length=200)
+    epit = models.CharField(max_length=200, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
